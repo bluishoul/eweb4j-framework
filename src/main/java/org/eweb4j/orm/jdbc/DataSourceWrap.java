@@ -3,6 +3,8 @@ package org.eweb4j.orm.jdbc;
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.sql.SQLFeatureNotSupportedException;
+import java.util.logging.Logger;
 
 import javax.sql.DataSource;
 
@@ -129,7 +131,12 @@ public final class DataSourceWrap implements DataSource {
 		return 0;
 	}
 
-	public <T> T unwrap(Class<T> iface) throws SQLException {
+    @Override
+    public Logger getParentLogger() throws SQLFeatureNotSupportedException {
+        return null;  //To change body of implemented methods use File | Settings | File Templates.
+    }
+
+    public <T> T unwrap(Class<T> iface) throws SQLException {
 		// TODO Auto-generated method stub
 		return null;
 	}
